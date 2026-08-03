@@ -174,16 +174,22 @@
     font-weight:700;
     position:relative;
     display:inline-block;
-    padding-bottom:0.8rem;
+    padding-bottom:0.35rem;
   }
   .section-head h2::after{
     content:"";
     position:absolute;
     left:0; bottom:0;
-    width:60px;
+    width:100%;
     height:4px;
     border-radius:2px;
     background:var(--pink);
+    transform-origin:left;
+    transform:scaleX(0);
+    transition:transform 1s ease 0.15s;
+  }
+  .section-head.visible h2::after{
+    transform:scaleX(1);
   }
 
   /* ---------- Cards (right aligned) ---------- */
@@ -251,7 +257,12 @@
   .price-card h3{
     color:var(--blue);
     font-size:1.05rem;
-    margin-bottom:0.8rem;
+    margin-bottom:0.4rem;
+  }
+  .plan-tier{
+    font-size:0.82rem;
+    color:var(--gray);
+    margin-bottom:0.6rem;
   }
   .price-row{
     display:flex;
@@ -546,7 +557,8 @@
     .hero{ padding:7rem 0 3.5rem; text-align:center; }
     .hero p{ margin-left:auto; margin-right:auto; }
     .section-head{ text-align:center; }
-    .section-head h2::after{ right:50%; transform:translateX(50%); }
+    .section-head h2::after{ left:50%; right:auto; transform:translateX(-50%) scaleX(0); }
+    .section-head.visible h2::after{ transform:translateX(-50%) scaleX(1); }
 
     .card{ margin-left:0; margin-right:0; max-width:100%; text-align:center; border-left:none; border-top:4px solid var(--pink); }
     .pain-list li,
@@ -554,16 +566,14 @@
     .campaign td,
     .campaign h4,
     .price-notes,
-    .flow-list li,
     .area-box,
     .form-group,
     .form-submit,
     .form-hint,
     #formStatus{ text-align:center; }
+    .pain-list li{ padding:0.6rem 0; }
     .price-row{ justify-content:center; }
     .checkbox-group{ justify-content:center; }
-    .flow-list li{ padding-right:0; padding-top:3.6rem; }
-    .flow-list li::after{ right:50%; top:0; transform:translateX(50%); }
     .service-item{ text-align:center; }
     .profile-card{ align-items:center; text-align:center; }
     .form-card{ margin-left:0; }
@@ -657,17 +667,23 @@
   <div class="container">
     <div class="section-head fade-in">
       <span class="tag">PRICE</span>
-      <h2>料金（平日）</h2>
+      <h2>料金とプラン</h2>
     </div>
 
     <div class="card price-card fade-in">
-      <h3>● 週2回以上のご利用</h3>
-      <div class="price-row"><span class="plan">2時間半</span><span class="yen">12,500円</span><span class="plan">（回/税込）</span></div>
-      <div class="price-row"><span class="plan">3時間</span><span class="yen">15,000円</span><span class="plan">（回/税込）</span></div>
+      <h3>２時間半プラン</h3>
+      <p class="plan-tier">週2回以上のご利用</p>
+      <div class="price-row"><span class="yen">12,500円</span><span class="plan">（回/税込）</span></div>
 
       <div class="price-divider"></div>
 
-      <h3>● お試し1回</h3>
+      <h3>３時間プラン</h3>
+      <p class="plan-tier">週2回以上のご利用</p>
+      <div class="price-row"><span class="yen">15,000円</span><span class="plan">（回/税込）</span></div>
+
+      <div class="price-divider"></div>
+
+      <h3>お試し1回プラン</h3>
       <div class="price-row"><span class="plan">2時間半</span><span class="yen">11,000円</span><span class="plan">（回/税込）</span></div>
       <p class="price-notes">※お掃除のご要望箇所3箇所まで</p>
 
