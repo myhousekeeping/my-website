@@ -923,7 +923,7 @@
   fadeEls.forEach(el => observer.observe(el));
 
   // お問い合わせフォーム（EmailJS経由で自動送信・自動返信）
-  const EMAILJS_PUBLIC_KEY = 'dy89Ou52fZYkShsWVmYD_';
+  const EMAILJS_PUBLIC_KEY = '_ZXKMt-DxsUFY7znW';
   const EMAILJS_SERVICE_ID = 'myhskpng1221';
   const EMAILJS_OWNER_TEMPLATE_ID = 'template_ge1d9pj';
   const EMAILJS_CUSTOMER_TEMPLATE_ID = 'template_z4peh5p';
@@ -999,9 +999,11 @@
     ]).then(() => {
       form.style.display = 'none';
       formSuccess.classList.add('visible');
-    }).catch(() => {
+    }).catch((err) => {
+      console.error('EmailJS send error:', err);
       submitBtn.disabled = false;
-      status.textContent = '送信に失敗しました。時間をおいて再度お試しいただくか、お電話にてご連絡ください。';
+      const detail = err && (err.text || err.message) ? `（詳細: ${err.status || ''} ${err.text || err.message}）` : '';
+      status.textContent = `送信に失敗しました。時間をおいて再度お試しいただくか、お電話にてご連絡ください。${detail}`;
     });
   });
 </script>
