@@ -150,6 +150,28 @@
     box-shadow:none;
   }
 
+  .floating-cta{
+    position:fixed;
+    right:1.6rem;
+    bottom:1.6rem;
+    z-index:90;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:4rem;
+    height:4rem;
+    border-radius:50%;
+    background:var(--pink);
+    color:#fff;
+    font-size:1.6rem;
+    box-shadow:0 10px 26px rgba(232,106,107,0.45);
+    transition:transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .floating-cta:hover{
+    transform:translateY(-3px) scale(1.06);
+    box-shadow:0 14px 32px rgba(232,106,107,0.55);
+  }
+
   /* ---------- Section base ---------- */
   section{
     padding:5rem 0;
@@ -271,13 +293,6 @@
   .plan-heading:hover{
     transform:translateY(-3px);
     box-shadow:0 12px 26px rgba(232,106,107,0.45);
-  }
-  .plan-icon{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    flex-shrink:0;
-    font-size:1.2rem;
   }
   .plan-tier{
     font-size:0.82rem;
@@ -517,18 +532,24 @@
   .form-submit{
     text-align:left;
   }
-  .form-hint{
-    font-size:0.78rem;
-    color:var(--gray);
-    margin-top:0.8rem;
-    text-align:left;
-  }
   #formStatus{
     text-align:left;
     font-size:0.85rem;
     color:var(--blue);
     margin-top:0.8rem;
     min-height:1.2em;
+  }
+  .form-success{
+    display:none;
+    text-align:center;
+    padding:1rem 0;
+    font-size:1.05rem;
+    font-weight:700;
+    color:var(--blue);
+    line-height:1.9;
+  }
+  .form-success.visible{
+    display:block;
   }
 
   /* Footer */
@@ -588,10 +609,10 @@
     .area-box,
     .form-group,
     .form-submit,
-    .form-hint,
     #formStatus{ text-align:center; }
     .price-row{ justify-content:center; }
-    .checkbox-group{ justify-content:center; }
+    .checkbox-group{ display:grid; grid-template-columns:repeat(2, 1fr); gap:0.6rem; }
+    .checkbox-item{ width:100%; }
     .plan-heading{ justify-content:center; }
     .service-grid{ grid-template-columns:repeat(2, 1fr); gap:0.8rem; }
     .service-item{ padding:1.2rem 0.8rem; }
@@ -599,18 +620,20 @@
     .profile-card{ align-items:center; text-align:center; }
     .form-card{ margin-left:0; }
     footer{ text-align:center; }
+
+    .household-item{ flex-direction:column; align-items:flex-start; gap:0.4rem; }
+    .household-tag{ width:auto; }
+    .household-item select{ width:100%; min-width:0; }
+    .preferred-date-item{ flex-direction:column; align-items:flex-start; gap:0.3rem; }
+    .preferred-date-tag{ width:auto; }
+    .preferred-date-item input{ width:100%; min-width:0; }
   }
 
   @media (max-width:480px){
     .hero h1{ font-size:1.5rem; }
     section{ padding:3.5rem 0; }
     .card{ padding:1.5rem 1.3rem; }
-    .preferred-date-item{ flex-direction:column; align-items:flex-start; gap:0.3rem; }
-    .preferred-date-tag{ width:auto; }
-    .preferred-date-item input{ width:100%; }
-    .household-item{ flex-direction:column; align-items:flex-start; gap:0.4rem; }
-    .household-tag{ width:auto; }
-    .household-item select{ width:100%; }
+    .floating-cta{ right:1rem; bottom:1rem; width:3.4rem; height:3.4rem; font-size:1.3rem; }
   }
 </style>
 </head>
@@ -690,19 +713,19 @@
     </div>
 
     <div class="card price-card fade-in">
-      <h3 class="plan-heading"><span class="plan-icon">🕐</span>２時間半プラン</h3>
+      <h3 class="plan-heading">２時間半プラン</h3>
       <p class="plan-tier">週2回以上のご利用</p>
       <div class="price-row"><span class="yen">12,500円</span><span class="plan">（回/税込）</span></div>
 
       <div class="price-divider"></div>
 
-      <h3 class="plan-heading"><span class="plan-icon">⏰</span>３時間プラン</h3>
+      <h3 class="plan-heading">３時間プラン</h3>
       <p class="plan-tier">週2回以上のご利用</p>
       <div class="price-row"><span class="yen">15,000円</span><span class="plan">（回/税込）</span></div>
 
       <div class="price-divider"></div>
 
-      <h3 class="plan-heading"><span class="plan-icon">🎁</span>お試し1回プラン</h3>
+      <h3 class="plan-heading">お試し1回プラン</h3>
       <div class="price-row"><span class="plan">2時間半</span><span class="yen">11,000円</span><span class="plan">（回/税込）</span></div>
       <p class="price-notes">※お掃除のご要望箇所3箇所まで</p>
 
@@ -857,8 +880,10 @@
           <button type="submit" class="btn">送信する</button>
         </div>
         <p id="formStatus"></p>
-        <p class="form-hint">送信ボタンを押すと、入力内容が入った状態でお使いのメールソフトが起動します。そのままメールを送信してください。</p>
       </form>
+      <div id="formSuccess" class="form-success">
+        <p>お問い合わせ内容を受け付けました。内容を確認後3営業日以内にご連絡いたします。</p>
+      </div>
     </div>
   </div>
 </section>
@@ -871,6 +896,9 @@
   </div>
 </footer>
 
+<a href="#contact" class="floating-cta" aria-label="お問い合わせはこちら" title="お問い合わせはこちら">✉️</a>
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script>
   // ハンバーガーメニュー
   const navToggle = document.getElementById('navToggle');
@@ -894,10 +922,20 @@
   }, { threshold: 0.15 });
   fadeEls.forEach(el => observer.observe(el));
 
-  // お問い合わせフォーム（mailto送信）
-  const CONTACT_EMAIL = 'myhskpng@gmail.com';
+  // お問い合わせフォーム（EmailJS経由で自動送信・自動返信）
+  const EMAILJS_PUBLIC_KEY = 'dy89Ou52fZYkShsWVmYD_';
+  const EMAILJS_SERVICE_ID = 'myhskpng1221';
+  const EMAILJS_OWNER_TEMPLATE_ID = 'template_ge1d9pj';
+  const EMAILJS_CUSTOMER_TEMPLATE_ID = 'template_z4peh5p';
+
+  if (window.emailjs) {
+    emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+  }
+
   const form = document.getElementById('contactForm');
   const status = document.getElementById('formStatus');
+  const formSuccess = document.getElementById('formSuccess');
+  const submitBtn = form.querySelector('.form-submit button');
   const serviceOther = document.getElementById('serviceOther');
   const otherDetail = document.getElementById('otherDetail');
 
@@ -939,31 +977,32 @@
       return;
     }
 
-    const subject = `【お問い合わせ】${name}様より`;
-    const body =
-`お名前：${name}
-メールアドレス：${email}
-電話番号：${phone}
+    const templateParams = {
+      name: name,
+      email: email,
+      phone: phone,
+      household_size: householdSize,
+      housing_type: housingTypes.length ? housingTypes.join('、') : '（記入なし）',
+      services: services.join('、'),
+      preferred_date1: preferredDate1,
+      preferred_date2: preferredDate2 || '（記入なし）',
+      preferred_date3: preferredDate3 || '（記入なし）',
+      details: details || '（記入なし）'
+    };
 
-生活様式：
-お住まいの人数：${householdSize}
-住居形態：${housingTypes.length ? housingTypes.join('、') : '（記入なし）'}
+    submitBtn.disabled = true;
+    status.textContent = '送信中です…';
 
-ご希望サービス内容：
-${services.join('、')}
-
-初回の訪問・打ち合わせ希望日時：
-第1希望：${preferredDate1}
-第2希望：${preferredDate2 || '（記入なし）'}
-第3希望：${preferredDate3 || '（記入なし）'}
-
-サービスに関するご要望：
-${details || '（記入なし）'}`;
-
-    const mailtoUrl = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-
-    window.location.href = mailtoUrl;
-    status.textContent = 'メールソフトが起動します。内容をご確認の上、送信してください。';
+    Promise.all([
+      emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_OWNER_TEMPLATE_ID, templateParams),
+      emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_CUSTOMER_TEMPLATE_ID, templateParams)
+    ]).then(() => {
+      form.style.display = 'none';
+      formSuccess.classList.add('visible');
+    }).catch(() => {
+      submitBtn.disabled = false;
+      status.textContent = '送信に失敗しました。時間をおいて再度お試しいただくか、お電話にてご連絡ください。';
+    });
   });
 </script>
 
