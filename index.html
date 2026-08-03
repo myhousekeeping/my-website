@@ -222,7 +222,7 @@
     font-weight:700;
   }
   .pain-note{
-    text-align:left;
+    text-align:center;
     margin-top:1.6rem;
     font-weight:700;
     color:var(--blue);
@@ -254,10 +254,30 @@
   .price-card{
     text-align:left;
   }
-  .price-card h3{
-    color:var(--blue);
-    font-size:1.05rem;
-    margin-bottom:0.4rem;
+  .plan-heading{
+    display:inline-flex;
+    align-items:center;
+    gap:0.6rem;
+    background:var(--pink);
+    color:#fff;
+    padding:0.7rem 1.6rem;
+    border-radius:50px;
+    font-weight:700;
+    font-size:0.95rem;
+    box-shadow:0 8px 20px rgba(232,106,107,0.35);
+    margin-bottom:0.8rem;
+    transition:transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .plan-heading:hover{
+    transform:translateY(-3px);
+    box-shadow:0 12px 26px rgba(232,106,107,0.45);
+  }
+  .plan-icon{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    flex-shrink:0;
+    font-size:1.2rem;
   }
   .plan-tier{
     font-size:0.82rem;
@@ -561,7 +581,6 @@
     .section-head.visible h2::after{ transform:translateX(-50%) scaleX(1); }
 
     .card{ margin-left:0; margin-right:0; max-width:100%; text-align:center; border-left:none; border-top:4px solid var(--pink); }
-    .pain-list li,
     .price-row,
     .campaign td,
     .campaign h4,
@@ -571,9 +590,11 @@
     .form-submit,
     .form-hint,
     #formStatus{ text-align:center; }
-    .pain-list li{ padding:0.6rem 0; }
     .price-row{ justify-content:center; }
     .checkbox-group{ justify-content:center; }
+    .plan-heading{ justify-content:center; }
+    .service-grid{ grid-template-columns:repeat(2, 1fr); gap:0.8rem; }
+    .service-item{ padding:1.2rem 0.8rem; }
     .service-item{ text-align:center; }
     .profile-card{ align-items:center; text-align:center; }
     .form-card{ margin-left:0; }
@@ -603,12 +624,11 @@
         <span></span><span></span><span></span>
       </button>
       <ul id="navList">
-        <li><a href="#problem">お悩み</a></li>
         <li><a href="#service">サービス</a></li>
         <li><a href="#price">料金</a></li>
         <li><a href="#area">対応エリア</a></li>
         <li><a href="#flow">流れ</a></li>
-        <li><a href="#profile">自己紹介</a></li>
+        <li><a href="#profile">略歴</a></li>
         <li><a href="#contact">お問い合わせ</a></li>
       </ul>
     </nav>
@@ -619,7 +639,7 @@
   <div class="container">
     <span class="eyebrow fade-in">LIFE SUPPORT PARTNER</span>
     <h1 class="fade-in">頑張るあなたに、<br class="br-mobile"><span class="accent">暮らしのプロ</span>が寄り添います。</h1>
-    <p class="fade-in">日常のお掃除・お片付けをサポートし、心地よい暮らしをお手伝いいたします。</p>
+    <p class="fade-in">日常のお掃除・お片付けをサポートし、<br>心地よい暮らしをお手伝いいたします。</p>
     <div class="cta fade-in">
       <a href="#contact" class="btn">お問い合わせはこちら</a>
     </div>
@@ -640,7 +660,7 @@
         <li>「遠方の両親の様子を見てほしい」</li>
         <li>「旅行中のペットの世話を信頼出来る人に頼みたい」などなど…</li>
       </ul>
-      <p class="pain-note">暮らしの中の様々なお悩み解決をお手伝いいたします！<br>お気軽にご依頼ください。</p>
+      <p class="pain-note">暮らしの中の様々なお悩み解決を<br>お手伝いいたします！<br>お気軽にご依頼ください。</p>
     </div>
   </div>
 </section>
@@ -658,7 +678,6 @@
       <div class="service-item fade-in"><div class="icon">🛒</div><p>お買い物代行</p></div>
       <div class="service-item fade-in"><div class="icon">📦</div><p>整理収納</p></div>
       <div class="service-item fade-in"><div class="icon">🐾</div><p>お子様・ご高齢のご家族・ペットの見守りお世話</p></div>
-      <div class="service-item fade-in"><div class="icon">💬</div><p>お話し相手など</p></div>
     </div>
   </div>
 </section>
@@ -671,19 +690,19 @@
     </div>
 
     <div class="card price-card fade-in">
-      <h3>２時間半プラン</h3>
+      <h3 class="plan-heading"><span class="plan-icon">🕐</span>２時間半プラン</h3>
       <p class="plan-tier">週2回以上のご利用</p>
       <div class="price-row"><span class="yen">12,500円</span><span class="plan">（回/税込）</span></div>
 
       <div class="price-divider"></div>
 
-      <h3>３時間プラン</h3>
+      <h3 class="plan-heading"><span class="plan-icon">⏰</span>３時間プラン</h3>
       <p class="plan-tier">週2回以上のご利用</p>
       <div class="price-row"><span class="yen">15,000円</span><span class="plan">（回/税込）</span></div>
 
       <div class="price-divider"></div>
 
-      <h3>お試し1回プラン</h3>
+      <h3 class="plan-heading"><span class="plan-icon">🎁</span>お試し1回プラン</h3>
       <div class="price-row"><span class="plan">2時間半</span><span class="yen">11,000円</span><span class="plan">（回/税込）</span></div>
       <p class="price-notes">※お掃除のご要望箇所3箇所まで</p>
 
@@ -740,7 +759,7 @@
   <div class="container">
     <div class="section-head fade-in">
       <span class="tag">PROFILE</span>
-      <h2>自己紹介</h2>
+      <h2>略歴</h2>
     </div>
     <div class="card fade-in">
       <div class="profile-card">
