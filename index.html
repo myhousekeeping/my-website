@@ -665,16 +665,17 @@
 
     .household-item{ flex-direction:column; align-items:flex-start; gap:0.4rem; }
     .household-tag{ width:auto; }
-    .household-item select{ width:100%; min-width:0; }
+    .household-item select{ width:100%; min-width:0; max-width:100%; padding:0.6rem 0.7rem; font-size:0.85rem; }
     .preferred-date-item{ flex-direction:column; align-items:flex-start; gap:0.3rem; }
     .preferred-date-tag{ width:auto; }
-    .preferred-date-item input{ width:100%; min-width:0; }
+    .preferred-date-item input{ width:100%; min-width:0; max-width:100%; padding:0.6rem 0.5rem; font-size:0.8rem; }
   }
 
   @media (max-width:480px){
     .hero h1{ font-size:1.5rem; }
     section{ padding:3.5rem 0; }
     .card{ padding:1.5rem 1.3rem; }
+    .form-card{ padding:1.5rem 0.9rem; }
     .floating-cta{ right:1rem; bottom:1rem; width:3.4rem; height:3.4rem; font-size:1.3rem; }
   }
 </style>
@@ -946,7 +947,7 @@
 <a href="#contact" class="floating-cta" aria-label="お問い合わせはこちら" title="お問い合わせはこちら">
   <svg class="floating-cta-arc" viewBox="0 0 100 100" aria-hidden="true">
     <path id="ctaCurve" d="M 10,50 a 40,40 0 1,1 80,0 a 40,40 0 1,1 -80,0" fill="none"></path>
-    <text font-size="10"><textPath href="#ctaCurve" startOffset="2%">お問い合わせはこちら</textPath></text>
+    <text font-size="10" text-anchor="middle"><textPath href="#ctaCurve" startOffset="25%">お問い合わせはこちら</textPath></text>
   </svg>
   <span class="floating-cta-icon">✉️</span>
 </a>
