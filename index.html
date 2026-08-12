@@ -127,11 +127,12 @@
     min-width:0;
   }
   .hero .eyebrow{
+    display:block;
     color:var(--pink);
     font-weight:700;
-    font-size:0.9rem;
-    letter-spacing:0.15em;
-    margin-bottom:1rem;
+    font-size:1.5rem;
+    letter-spacing:0.03em;
+    margin-bottom:0.6rem;
   }
   .hero h1{
     font-size:clamp(1.7rem, 4.5vw, 2.6rem);
@@ -142,7 +143,8 @@
   }
   .hero h1 .accent{ color:var(--blue); }
   .hero p{
-    font-size:1.05rem;
+    font-size:0.85rem;
+    line-height:1.6;
     color:var(--gray);
     max-width:560px;
     margin-right:auto;
@@ -297,6 +299,7 @@
     gap:1.2rem;
   }
   .service-item{
+    position:relative;
     background:#fff;
     border-radius:16px;
     padding:1.6rem 1.4rem;
@@ -304,6 +307,7 @@
     box-shadow:0 4px 16px rgba(0,0,0,0.06);
     border-top:3px solid var(--blue);
     transition:transform 0.25s ease;
+    cursor:pointer;
   }
   .service-item:hover{ transform:translateY(-6px); }
   .service-item .icon{
@@ -311,6 +315,45 @@
     margin-bottom:0.6rem;
   }
   .service-item p{ font-weight:600; }
+  .service-name-row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:0.6rem;
+  }
+  .service-toggle{
+    flex-shrink:0;
+    color:var(--blue);
+    font-size:0.75rem;
+    transition:transform 0.25s ease;
+  }
+  .service-item.expanded .service-toggle{
+    transform:rotate(180deg);
+  }
+  .service-detail{
+    display:none;
+    margin-top:0.9rem;
+    padding-top:0.9rem;
+    border-top:1px dashed #e2e2e2;
+    font-size:0.82rem;
+    font-weight:400;
+    color:var(--gray);
+    line-height:1.8;
+  }
+  .service-item.expanded .service-detail{
+    display:block;
+  }
+  .service-note{
+    margin-top:2rem;
+    text-align:center;
+    font-size:0.9rem;
+    color:var(--gray);
+    line-height:1.9;
+  }
+  .section-cta{
+    margin-top:2.5rem;
+    text-align:center;
+  }
 
   /* 料金 */
   .price-card{
@@ -390,10 +433,13 @@
     text-align:left;
   }
   .area-box .big{
-    font-size:1.3rem;
+    font-size:1rem;
     font-weight:700;
     color:var(--blue);
-    margin-bottom:0.8rem;
+    margin-bottom:0.6rem;
+  }
+  .area-box p{
+    font-size:0.85rem;
   }
 
   /* 流れ */
@@ -424,6 +470,14 @@
     justify-content:center;
   }
   .flow-list strong{ display:block; margin-bottom:0.2rem; }
+  .flow-note-tight{
+    display:inline-block;
+    font-size:0.9rem;
+    letter-spacing:-0.02em;
+  }
+  @media (min-width:769px){
+    .flow-note-tight{ white-space:nowrap; }
+  }
 
   /* 自己紹介 */
   .profile-card{
@@ -638,6 +692,7 @@
     .hero{ padding:7rem 0 3.5rem; text-align:center; }
     .hero-inner{ flex-direction:column; gap:1.2rem; }
     .hero-logo{ width:110px; }
+    .hero .eyebrow{ font-size:1.2rem; }
     .hero p{ margin-left:auto; margin-right:auto; }
     .section-head{ text-align:center; }
     .section-head h2::after{ left:50%; right:auto; transform:translateX(-50%) scaleX(0); }
@@ -686,7 +741,7 @@
 
 <header>
   <div class="container">
-    <div class="logo">My.ハウスキーピング</div>
+    <a href="#" class="logo">My.ハウスキーピング</a>
     <nav>
       <button class="nav-toggle" id="navToggle" aria-label="メニュー">
         <span></span><span></span><span></span>
@@ -694,7 +749,6 @@
       <ul id="navList">
         <li><a href="#service">サービス</a></li>
         <li><a href="#price">料金</a></li>
-        <li><a href="#area">対応エリア</a></li>
         <li><a href="#flow">流れ</a></li>
         <li><a href="#profile">略歴</a></li>
         <li><a href="#contact">お問い合わせ</a></li>
@@ -707,11 +761,11 @@
   <div class="container hero-inner">
     <img src="logo-house.png" alt="My.ハウスキーピング ロゴ" class="hero-logo fade-in">
     <div class="hero-content">
-      <span class="eyebrow fade-in">LIFE SUPPORT PARTNER</span>
+      <span class="eyebrow fade-in">My.ハウスキーピング</span>
       <h1 class="fade-in">頑張るあなたに、<br class="br-mobile"><span class="accent">暮らしのプロ</span>が寄り添います。</h1>
-      <p class="fade-in">日常のお掃除・お片付けをサポートし、<br>心地よい暮らしをお手伝いいたします。</p>
+      <p class="fade-in">休日にまとめて掃除する必要も、帰宅してから家事に追われる必要もありません。<br>掃除・片付けに使っていた時間を、家族との時間や自分のための時間へ。<br>定期的にプロが家を整えるから、いつでも気持ちよく過ごせる家を維持できます。</p>
       <div class="cta fade-in">
-        <a href="#contact" class="btn">お問い合わせはこちら</a>
+        <a href="#contact" class="btn">定期利用について相談する</a>
       </div>
     </div>
   </div>
@@ -736,6 +790,7 @@
   </div>
 </section>
 
+
 <section id="service">
   <div class="container">
     <div class="section-head fade-in">
@@ -743,13 +798,38 @@
       <h2>提供サービス</h2>
     </div>
     <div class="service-grid">
-      <div class="service-item fade-in"><div class="icon">🧹</div><p>おうちのお掃除</p></div>
-      <div class="service-item fade-in"><div class="icon">🧺</div><p>お洗濯</p></div>
-      <div class="service-item fade-in"><div class="icon">🍳</div><p>お料理代行</p></div>
-      <div class="service-item fade-in"><div class="icon">🛒</div><p>お買い物代行</p></div>
-      <div class="service-item fade-in"><div class="icon">📦</div><p>整理収納</p></div>
-      <div class="service-item fade-in"><div class="icon">🐾</div><p>お子様・ご高齢のご家族・ペットの見守りお世話</p></div>
+      <div class="service-item fade-in" tabindex="0" role="button" aria-expanded="false">
+        <div class="icon">🧹</div>
+        <div class="service-name-row"><p>おうちのお掃除</p><span class="service-toggle">▼</span></div>
+        <div class="service-detail">リビング・キッチン・水回り・寝室など。優先度に応じてピカピカにお掃除致します！<br>※おうちの広さ・お掃除のご要望箇所によって作業時間が変わります。まずはお客様のご要望をお聞かせ下さい。</div>
+      </div>
+      <div class="service-item fade-in" tabindex="0" role="button" aria-expanded="false">
+        <div class="icon">🧺</div>
+        <div class="service-name-row"><p>お洗濯</p><span class="service-toggle">▼</span></div>
+        <div class="service-detail">おうちのお掃除と組み合わせて洗っておくだけ、取り込んでおくだけのポイント的な使い方も、洗い～干し・畳みまでワンストップでのご要望も承ります。</div>
+      </div>
+      <div class="service-item fade-in" tabindex="0" role="button" aria-expanded="false">
+        <div class="icon">📦</div>
+        <div class="service-name-row"><p>お片付け・整理整頓</p><span class="service-toggle">▼</span></div>
+        <div class="service-detail">片付かないお部屋のお片付けから押し入れ収納、キッチン回りの収納、断捨離など。おうちを根本からリフレッシュして、モヤモヤ解決をお手伝いします！</div>
+      </div>
+      <div class="service-item fade-in" tabindex="0" role="button" aria-expanded="false">
+        <div class="icon">🍳</div>
+        <div class="service-name-row"><p>お料理代行</p><span class="service-toggle">▼</span></div>
+        <div class="service-detail">一食分を作りたてで配膳も、何食分かの作り置きも対応可能です。</div>
+      </div>
+      <div class="service-item fade-in" tabindex="0" role="button" aria-expanded="false">
+        <div class="icon">🛒</div>
+        <div class="service-name-row"><p>お買い物代行</p><span class="service-toggle">▼</span></div>
+        <div class="service-detail">食料品や日用品のお買い物を代行いたします。</div>
+      </div>
+      <div class="service-item fade-in" tabindex="0" role="button" aria-expanded="false">
+        <div class="icon">🤝</div>
+        <div class="service-name-row"><p>見守り</p><span class="service-toggle">▼</span></div>
+        <div class="service-detail">離れたところに住んでいる高齢のご家族や、小学生以上のお子様の見守りに対応致します。また旅行中のペットのお世話などもお任せください！</div>
+      </div>
     </div>
+    <p class="service-note">そのほか、ご要望に応じた一般的な家事にも対応いたします。<br>当日のご自宅の状態やご要望に応じて、時間内で必要な作業を組み合わせてまいります。</p>
   </div>
 </section>
 
@@ -792,6 +872,9 @@
         <p>※土日祝日、17:00以降の夜間対応については別途割増料金（30分につき500円）が発生致します。</p>
       </div>
     </div>
+    <div class="section-cta fade-in">
+      <a href="#contact" class="btn">まずは相談する</a>
+    </div>
   </div>
 </section>
 
@@ -817,7 +900,7 @@
     <div class="card fade-in">
       <ol class="flow-list">
         <li><strong>お問い合わせ</strong>フォームよりご希望内容や日程についてご連絡ください。</li>
-        <li><strong>日程調整・ヒアリング</strong>折り返しのご連絡にてサービスのご要望と日程についてお伺いいたします。</li>
+        <li><strong>日程調整・ヒアリング</strong><span class="flow-note-tight">折り返しのご連絡にてサービスのご要望と日程についてお伺いいたします。</span></li>
         <li><strong>ご訪問・サービス実施</strong>心を込めて丁寧に作業いたします。</li>
         <li><strong>ご確認・お支払い</strong>作業完了後ご確認頂き、お支払いとなります。<br>（現金払い・銀行振込・クレジットカード払いがご利用いただけます）</li>
       </ol>
@@ -896,9 +979,10 @@
           <div class="checkbox-group" id="serviceGroup">
             <label class="checkbox-item"><input type="checkbox" name="service" value="おうちのお掃除"><span>おうちのお掃除</span></label>
             <label class="checkbox-item"><input type="checkbox" name="service" value="お洗濯"><span>お洗濯</span></label>
+            <label class="checkbox-item"><input type="checkbox" name="service" value="お片付け・整理整頓"><span>お片付け・整理整頓</span></label>
             <label class="checkbox-item"><input type="checkbox" name="service" value="お料理代行"><span>お料理代行</span></label>
             <label class="checkbox-item"><input type="checkbox" name="service" value="お買い物代行"><span>お買い物代行</span></label>
-            <label class="checkbox-item"><input type="checkbox" name="service" value="整理収納"><span>整理収納</span></label>
+            <label class="checkbox-item"><input type="checkbox" name="service" value="見守り"><span>見守り</span></label>
             <label class="checkbox-item"><input type="checkbox" id="serviceOther" name="service" value="その他"><span>その他</span></label>
           </div>
           <input type="text" id="otherDetail" name="otherDetail" placeholder="その他のご希望内容をご記入ください" class="other-detail" style="display:none;">
@@ -922,7 +1006,7 @@
         </div>
         <div class="form-group">
           <label for="details">サービスに関するご要望</label>
-          <textarea id="details" name="details" placeholder="ご要望やお伝えしたいことがあればご記入ください"></textarea>
+          <textarea id="details" name="details" placeholder="現在お悩みのおうちのこと、お掃除のご要望箇所、希望サービス、そのほかご不明なことなど気軽にお問い合わせください"></textarea>
         </div>
         <div class="form-submit">
           <button type="submit" class="btn">送信する</button>
@@ -975,6 +1059,21 @@
     });
   }, { threshold: 0.15 });
   fadeEls.forEach(el => observer.observe(el));
+
+  // サービス詳細の開閉
+  document.querySelectorAll('.service-item').forEach(item => {
+    const toggleOpen = () => {
+      const isOpen = item.classList.toggle('expanded');
+      item.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    };
+    item.addEventListener('click', toggleOpen);
+    item.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggleOpen();
+      }
+    });
+  });
 
   // お問い合わせフォーム（EmailJS経由で自動送信・自動返信）
   const EMAILJS_PUBLIC_KEY = '_ZXKMt-DxsUFY7znW';
