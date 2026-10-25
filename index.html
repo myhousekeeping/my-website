@@ -761,6 +761,12 @@
   /* ファーストビュー：白地にコピー → 写真 → ボタン／バッジ */
   .hero{ display:block; min-height:0; padding:0; background:#fff; text-align:center; }
   .hero-copy{ padding-top:8.4rem; padding-bottom:2.2rem; text-align:center; }
+  /* コピー部分の背景：カーテンの写真（下端は白へなじませる） */
+  .hero-top{
+    background:
+      linear-gradient(180deg,rgba(255,255,255,0.3) 0%,rgba(255,255,255,0.3) 75%,#fff 100%),
+      url('bg-curtain.png') center/cover no-repeat;
+  }
   .hero .eyebrow{ font-size:1.25rem; margin-bottom:0.5rem; }
   .hero h1{ font-size:clamp(1.35rem,3.6vw,2.6rem); margin-bottom:1.1rem; }
   .hero p{ font-size:1.02rem; line-height:1.9; color:#333; max-width:640px; margin:0 auto; }
@@ -1041,6 +1047,7 @@
 </header>
 
 <section class="hero">
+  <div class="hero-top">
   <div class="container hero-copy">
     <div class="hero-text">
       <span class="eyebrow fade-in">My.ハウスキーピング</span>
@@ -1055,6 +1062,7 @@
       </ul>
       <a href="#contact" class="cta-circle fade-in">定期利用について<br>相談する</a>
     </div>
+  </div>
   </div>
   <div class="hero-visual" role="img" aria-label="明るく片付いたリビング"></div>
 </section>
