@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#277A96">
 <title>My.ハウスキーピング | 暮らしのプロが寄り添うハウスキーピングサービス</title>
 <meta name="description" content="お掃除・お片付け・お料理代行・お買い物代行・見守りお世話まで。横浜市青葉区を中心に活動するライフサポートパートナーが、心地よい暮らしをお手伝いします。">
 <style>
@@ -13,6 +14,7 @@
     --black:#1a1a1a;
     --gray:#666;
     --bg-soft:#f7fafb;
+    --main-visual:url('image1.png');
   }
 
   *{ box-sizing:border-box; margin:0; padding:0; }
@@ -31,7 +33,7 @@
     position:fixed;
     inset:0;
     z-index:-1;
-    background:url('image1.png') center/cover no-repeat;
+    background:var(--main-visual) center/cover no-repeat;
     opacity:0.5;
   }
 
@@ -157,7 +159,7 @@
     background:var(--pink);
     color:#fff;
     padding:0.9rem 2.2rem;
-    border-radius:50px;
+    border-radius:999px;
     font-weight:700;
     font-size:0.95rem;
     box-shadow:0 8px 20px rgba(232,106,107,0.35);
@@ -259,7 +261,7 @@
   /* ---------- Cards (right aligned) ---------- */
   .card{
     background:#fff;
-    border-radius:18px;
+    border-radius:16px;
     box-shadow:0 6px 24px rgba(39,122,150,0.08);
     padding:2rem 2.2rem;
     margin-right:auto;
@@ -309,7 +311,6 @@
     transition:transform 0.25s ease;
     cursor:pointer;
   }
-  .service-item:hover{ transform:translateY(-6px); }
   .service-item .icon{
     font-size:1.6rem;
     margin-bottom:0.6rem;
@@ -366,16 +367,12 @@
     background:var(--pink);
     color:#fff;
     padding:0.7rem 1.6rem;
-    border-radius:12px;
+    border-radius:999px;
     font-weight:700;
     font-size:0.95rem;
     box-shadow:0 8px 20px rgba(232,106,107,0.35);
     margin-bottom:0.8rem;
     transition:transform 0.25s ease, box-shadow 0.25s ease;
-  }
-  .plan-heading:hover{
-    transform:translateY(-3px);
-    box-shadow:0 12px 26px rgba(232,106,107,0.45);
   }
   .plan-tier{
     font-size:0.82rem;
@@ -398,7 +395,7 @@
   }
   .campaign{
     background:linear-gradient(135deg,#fff5f5,#fff);
-    border-radius:14px;
+    border-radius:16px;
     padding:1.4rem 1.6rem;
     margin-top:1.5rem;
     border-left:4px solid var(--pink);
@@ -507,7 +504,7 @@
     font-size:0.78rem;
     font-weight:700;
     padding:0.25rem 0.9rem;
-    border-radius:50px;
+    border-radius:999px;
     margin-bottom:0.4rem;
   }
   .profile-bio{ color:var(--gray); font-size:0.95rem; }
@@ -533,7 +530,7 @@
   .form-group textarea{
     width:100%;
     border:1px solid #ddd;
-    border-radius:10px;
+    border-radius:16px;
     padding:0.8rem 1rem;
     font-size:0.95rem;
     font-family:inherit;
@@ -560,7 +557,7 @@
     gap:0.5rem;
     background:var(--bg-soft);
     border:1px solid #ddd;
-    border-radius:10px;
+    border-radius:16px;
     padding:0.6rem 1rem;
     font-size:0.9rem;
     font-weight:400 !important;
@@ -682,7 +679,7 @@
       width:200px;
       padding:1.2rem;
       box-shadow:-4px 4px 20px rgba(0,0,0,0.1);
-      border-radius:0 0 0 12px;
+      border-radius:0 0 0 16px;
       transform:translateX(100%);
       transition:transform 0.3s ease;
     }
@@ -735,6 +732,290 @@
     .floating-cta{ right:1rem; bottom:1rem; width:3.4rem; height:3.4rem; font-size:1.3rem; }
     .preferred-date-item input{ width:75%; max-width:200px; padding:0.45rem 0.3rem; font-size:0.66rem; }
   }
+
+  /* ===== 追加調整：メインビジュアル／読みやすさ／レスポンシブ ===== */
+  html{ font-size:106.25%; }
+  body{ font-weight:500; }
+  :root{ --gray:#4d4d4d; }
+  p,li,td,h1,h2,h3,h4,strong,label{ word-break:auto-phrase; line-break:strict; overflow-wrap:break-word; }
+  h1,h2,h3,.pain-note,.service-note{ text-wrap:balance; }
+  p,li{ text-wrap:pretty; }
+
+  /* ヘッダー：ロゴ文字色の青 */
+  header{ background:rgba(39,122,150,0.97); box-shadow:0 2px 12px rgba(0,0,0,0.18); }
+  header .logo{ color:#fff; font-size:1.2rem; }
+  nav a{ color:#fff; font-size:0.95rem; font-weight:700; }
+  nav a::after{ background:#fff; }
+  .nav-toggle span{ background:#fff; }
+
+  /* ヘッダー：円形ロゴ */
+  header .container{ padding-top:0.6rem; padding-bottom:0.6rem; }
+  header .logo{ display:flex; align-items:center; gap:0.7rem; }
+  .logo-mark{
+    width:52px; height:52px; flex-shrink:0;
+    border-radius:50%; background:#fff;
+    object-fit:contain; padding:7px;
+    box-shadow:0 0 0 3px rgba(255,255,255,0.28);
+  }
+
+  /* ファーストビュー：白地にコピー → 写真 → ボタン／バッジ */
+  .hero{ display:block; min-height:0; padding:0; background:#fff; text-align:center; }
+  .hero-copy{ padding-top:8.4rem; padding-bottom:2.2rem; text-align:center; }
+  .hero .eyebrow{ font-size:1.25rem; margin-bottom:0.5rem; }
+  .hero h1{ font-size:clamp(1.35rem,3.6vw,2.6rem); margin-bottom:1.1rem; }
+  .hero p{ font-size:1.02rem; line-height:1.9; color:#333; max-width:640px; margin:0 auto; }
+  .hero-visual{
+    position:relative;
+    height:clamp(280px,38vw,560px);
+    background:var(--main-visual) center 45%/cover no-repeat;
+  }
+  .hero-visual::before{
+    content:""; position:absolute; left:0; right:0; top:0; height:45%;
+    background:linear-gradient(180deg,#fff 0%,rgba(255,255,255,0) 100%);
+  }
+  .hero-actions{ display:flex; align-items:center; justify-content:center; gap:2.5rem; padding-top:2.4rem; }
+  .hero-badges{
+    --d:140px;
+    list-style:none;
+    display:grid;
+    grid-template-columns:repeat(4, calc(var(--d) / 2 + 4px));
+  }
+  .hero-badges li{
+    width:var(--d); height:var(--d);
+    justify-self:center;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    border:2.5px solid var(--blue); border-radius:50%;
+    background:rgba(255,255,255,0.9);
+    color:var(--blue); line-height:1.4;
+  }
+  .hero-badges li:nth-child(1){ grid-column:2 / span 2; grid-row:1; }
+  .hero-badges li:nth-child(2){ grid-column:1 / span 2; grid-row:2; margin-top:calc(var(--d) * -0.12); }
+  .hero-badges li:nth-child(3){ grid-column:3 / span 2; grid-row:2; margin-top:calc(var(--d) * -0.12); }
+  .hero-badges .b-label{ font-size:0.95rem; font-weight:700; white-space:nowrap; }
+  .hero-badges .b-sub{ font-size:1.15rem; font-weight:700; }
+  .hero-badges .b-main{ display:block; margin:0; font-size:1.2rem; font-weight:700; line-height:1.15; white-space:nowrap; }
+  .hero-badges em{ font-style:normal; font-size:2.6rem; line-height:1; color:var(--pink); margin-right:0.05em; }
+  .cta-circle{
+    display:flex; align-items:center; justify-content:center; text-align:center;
+    width:200px; height:200px; border-radius:50%;
+    background:var(--pink); color:#fff;
+    font-weight:700; font-size:1.15rem; line-height:1.6;
+    box-shadow:0 12px 30px rgba(232,106,107,0.4);
+    transition:transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .sp-br{ display:none; }
+  @keyframes floatUp{
+    from{ opacity:0; transform:translateY(26px) scale(0.9); }
+    to{ opacity:1; transform:translateY(0) scale(1); }
+  }
+  .hero-badges.fade-in{ opacity:1; transform:none; }
+  .hero-badges li{ opacity:0; }
+  .hero-badges.visible li{ animation:floatUp 1s cubic-bezier(0.2,0.7,0.2,1) both; }
+  .hero-badges.visible li:nth-child(1){ animation-delay:0.2s; }
+  .hero-badges.visible li:nth-child(2){ animation-delay:0.55s; }
+  .hero-badges.visible li:nth-child(3){ animation-delay:0.9s; }
+  .cta-circle.fade-in.visible{ animation:floatUp 1s cubic-bezier(0.2,0.7,0.2,1) 1.3s backwards; }
+  @media (prefers-reduced-motion:reduce){
+    .hero-badges li{ opacity:1; }
+    .hero-badges.visible li, .cta-circle.fade-in.visible{ animation:none; }
+  }
+  @media (min-width:1100px){
+    .hero-copy.container{ max-width:1180px; display:grid; grid-template-columns:1fr auto; align-items:center; column-gap:3rem; text-align:left; padding-bottom:3rem; }
+    .hero-text{ text-align:left; }
+    .hero p{ margin:0; max-width:none; }
+    .hero h1{ font-size:clamp(1.9rem,2.7vw,2.25rem); }
+    .hero-actions{ padding-top:0; gap:2rem; }
+  }
+  .cta-circle:hover{ transform:translateY(-4px) scale(1.03); box-shadow:0 16px 36px rgba(232,106,107,0.5); }
+
+  /* 画像が透ける奇数セクションは、偶数セクションと少しトーンの違う白に */
+  section:nth-of-type(odd):not(.hero){ background:rgba(255,252,247,0.9); }
+
+  /* 文字サイズ・太さ（読みやすさ優先） */
+  .section-head .tag{ font-size:0.9rem; }
+  .section-head h2{ font-size:clamp(1.5rem,3.2vw,2rem); }
+  .btn{ font-size:1.05rem; padding:1rem 2.4rem; }
+  .pain-list li{ font-size:1.05rem; }
+  .service-item p{ font-size:1.05rem; font-weight:700; }
+  .service-detail{ font-size:0.95rem; font-weight:500; color:#444; }
+  .plan-tier{ font-size:0.95rem; }
+  .price-row .plan{ font-size:1rem; }
+  .campaign td{ font-size:1rem; }
+  .price-notes{ font-size:0.92rem; color:#444; }
+  .area-box .big{ font-size:1.1rem; }
+  .area-box p{ font-size:1rem; }
+  .flow-list li{ font-size:1rem; }
+  .flow-note-tight{ font-size:1rem; letter-spacing:0; }
+  .profile-bio{ font-size:1rem; color:#444; }
+  .form-group label{ font-size:1rem; }
+  .checkbox-item{ font-size:1rem; font-weight:500 !important; }
+  .household-tag,.preferred-date-tag{ font-size:0.95rem; }
+  #formStatus{ font-size:0.95rem; }
+
+  /* サービスアイコン（フラット） */
+  .service-grid{ grid-template-columns:repeat(3,1fr); }
+  .service-item .icon{
+    width:58px; height:58px;
+    border-radius:50%;
+    background:#eaf4f7;
+    color:var(--blue);
+    display:flex; align-items:center; justify-content:center;
+    font-size:0;
+    margin-bottom:0.8rem;
+  }
+  .service-item .icon svg{ width:30px; height:30px; fill:currentColor; }
+  .service-item .icon .cut{ fill:#eaf4f7; }
+
+  /* 料金：数字を大きく・円を小さく */
+  .yen{ display:inline-flex; align-items:baseline; gap:0.15rem; color:var(--pink); font-weight:700; }
+  .yen .num{ font-size:2.5rem; line-height:1.1; letter-spacing:0.01em; }
+  .yen .unit{ font-size:0.95rem; }
+  .plan-heading{ font-size:1.15rem; padding:0.7rem 1.6rem; }
+  .price-row .yen + .plan{ margin-left:-0.9rem; }
+  .price-row .plan:first-child{ font-size:1.1rem; font-weight:700; color:var(--blue); }
+
+  /* お客様の声（各プラン内） */
+  .voice{ margin:0.9rem 0 0.4rem; padding:1rem 1.2rem; background:#f2f8fa; border-radius:16px; text-align:left; }
+  .voice-tag{ font-size:0.95rem; font-weight:700; letter-spacing:0.12em; color:var(--blue); margin-bottom:0.5rem; }
+  .voice-label{ display:flex; flex-wrap:wrap; align-items:center; gap:0.5rem 0.6rem; margin-bottom:0.7rem; line-height:1.5; }
+  .v-chip{ background:var(--blue); color:#fff; font-weight:700; font-size:0.95rem; line-height:1.2; padding:0.2rem 0.85rem; border-radius:999px; }
+  .v-topic{ font-weight:700; color:var(--blue); font-size:0.95rem; line-height:1.62; }
+  .voice-text{ font-size:1.02rem; line-height:1.9; }
+
+  /* ※注釈：2行目以降を1文字下げる（ぶら下げインデント） */
+  p.price-notes, div.price-notes > p, .service-detail .note{ padding-left:1em; text-indent:-1em; }
+  .service-detail .note{ display:block; margin-top:0.2rem; }
+
+  /* 略歴：写真＋テキスト */
+  .profile-flex{ display:flex; align-items:center; gap:2.2rem; }
+  .profile-photo{ width:300px; flex-shrink:0; aspect-ratio:4 / 5; object-fit:cover; object-position:center 25%; border-radius:16px; }
+  .profile-body{ flex:1; min-width:0; text-align:left; }
+  .profile-head{ margin-bottom:1rem; }
+  .profile-name{ font-size:1.3rem; }
+
+  /* 送信ボタン：既定の枠線・フォーカス枠を除去 */
+  button.btn{ border:none; cursor:pointer; font-family:inherit; -webkit-appearance:none; appearance:none; }
+  button.btn:focus{ outline:none; }
+  button.btn:focus-visible{ outline:3px solid rgba(39,122,150,0.45); outline-offset:3px; }
+  button.btn:disabled{ opacity:0.6; cursor:default; transform:none; }
+
+  /* 右下ボタンのアイコン */
+  .floating-cta-icon svg{ width:1.15em; height:1.15em; fill:currentColor; display:block; }
+
+  @media (min-width:769px){
+    .hero{ padding-bottom:0; }
+    .section-head{ text-align:center; }
+    .section-head h2::after{ transform-origin:center; }
+    .card{ max-width:860px; margin-left:auto; margin-right:auto; }
+    .form-card{ max-width:760px; margin-left:auto; }
+  }
+  @media (max-width:768px){
+    .container{ padding:0 1.2rem; }
+    .hero-copy{ padding-top:7.2rem; padding-bottom:1.8rem; }
+    .logo-mark{ width:44px; height:44px; padding:6px; }
+    .profile-flex{ flex-direction:column; gap:1.2rem; }
+    .profile-photo{ width:100%; max-width:320px; }
+    .profile-head{ text-align:center; }
+    .hero-actions{ flex-direction:column; gap:1.8rem; padding-top:2rem; }
+    .hero-badges{ --d:120px; }
+    .hero-badges em{ font-size:2rem; }
+    .hero-badges .b-main{ font-size:1rem; }
+    .hero-badges .b-sub{ font-size:0.95rem; }
+    .hero-badges .b-label{ font-size:0.8rem; }
+    .cta-circle{ width:176px; height:176px; font-size:1.1rem; }
+    header .logo{ gap:0.55rem; font-size:1.05rem; }
+    nav ul{ position:absolute; top:100%; width:min(260px,80vw); background:var(--blue); gap:0.2rem; padding:0.8rem 1.2rem; }
+    nav a{ display:block; padding:0.7rem 0; font-size:1.05rem; }
+    .service-grid{ grid-template-columns:repeat(2,1fr); }
+    .service-item .icon{ margin-left:auto; margin-right:auto; }
+    .price-notes,.area-box p,.profile-bio,.service-detail,.voice{ text-align:left; }
+    .preferred-date-item{ align-items:stretch; }
+    .preferred-date-item input{ width:100%; max-width:none; margin:0; font-size:0.95rem; padding:0.6rem; }
+  }
+  @media (max-width:520px){
+    .sp-br{ display:inline; }
+    .service-grid{ grid-template-columns:1fr; gap:0.8rem; }
+    .service-item{ display:grid; grid-template-columns:auto 1fr; column-gap:1rem; align-items:center; text-align:left; padding:1rem 1.1rem; }
+    .service-item .icon{ margin:0; }
+    .service-detail{ grid-column:1 / -1; }
+    .checkbox-group{ grid-template-columns:1fr; }
+  }
+  @media (max-width:480px){
+    .hero h1{ font-size:1.3rem; }
+    .preferred-date-item input{ width:100%; max-width:none; font-size:0.95rem; padding:0.6rem; }
+  }
+
+  /* ===== SP／タブレットの細部調整 ===== */
+  .ph{ word-break:keep-all; overflow-wrap:anywhere; }
+  .pain-list li::before{ position:absolute; left:0.2rem; }
+  .pr,.nw{ white-space:nowrap; }
+
+  /* 流れ：番号とタイトルを1行目、説明文は下に */
+  .flow-list li{ display:grid; grid-template-columns:2.2rem 1fr; column-gap:1rem; align-items:center; padding:1.1rem 0; }
+  .flow-list li::after{ position:static; transform:none; grid-column:1; grid-row:1; }
+  .flow-list strong{ grid-column:2; grid-row:1; margin:0; }
+  .flow-desc{ grid-column:2; grid-row:2; margin-top:0.2rem; }
+
+  .ft-a,.ft-b{ display:inline-block; }
+
+  @media (max-width:768px){
+    .form-group{ text-align:left; }
+    .checkbox-item{ margin-bottom:0; padding:0.55rem 0.9rem; }
+    .household-item .checkbox-group{ width:100%; }
+    .price-row .plan:first-child{ flex-basis:100%; }
+    .voice{ padding:1rem; }
+    .pr{ display:block; }
+    .pr-sep{ display:none; }
+  }
+  @media (max-width:520px){
+    .flow-desc{ grid-column:1 / -1; margin-top:0.5rem; }
+    .section-head h2{ font-size:1.3rem; }
+    .ft-a,.ft-b{ display:block; }
+    .ft-sep{ display:none; }
+  }
+  @media (max-width:360px){
+    header .logo{ font-size:0.95rem; gap:0.45rem; }
+    .logo-mark{ width:38px; height:38px; padding:5px; }
+    .hero h1{ font-size:1.15rem; }
+    .container{ padding:0 1rem; }
+  }
+
+  /* ===== 仕上げ調整（改行・余白・左揃え・略歴・フォーム） ===== */
+  /* リード文は左揃え（ブロック自体は中央に置く） */
+  .pain-note,.service-note{ width:fit-content; max-width:100%; margin-left:auto; margin-right:auto; text-align:left; text-wrap:wrap; }
+  @media (max-width:1099px){
+    .hero p{ width:fit-content; max-width:100%; margin-left:auto; margin-right:auto; text-align:left; }
+  }
+
+  /* 〇時間プラン見出し：もう一回り小さく */
+  .plan-heading{ font-size:1rem; padding:0.6rem 1.4rem; }
+
+  /* 略歴：肩書き横のロゴ円・名前 */
+  .profile-head-row{ --h:2.4rem; display:flex; align-items:center; gap:0.6rem; margin-bottom:0.5rem; }
+  .profile-mark{ width:var(--h); height:var(--h); padding:5px; box-shadow:0 0 0 2px #cfe3ea; }
+  .profile-head-row .profile-title{ display:inline-flex; align-items:center; height:var(--h); margin:0; padding:0 1.1rem; font-size:0.85rem; line-height:1; }
+  .profile-person{ font-size:1rem; font-weight:700; color:#444; }
+
+  @media (max-width:768px){
+    section{ padding:3rem 0; }
+    #problem{ padding-top:2rem; }
+    .section-head{ margin-bottom:2rem; }
+    .pain-note{ margin-top:1.2rem; }
+    .service-note{ margin-top:1.4rem; }
+    .profile-head-row{ justify-content:center; }
+
+    /* 初回の訪問・打ち合わせ希望日時：枠からはみ出さない／幅を5mm縮めて中央に */
+    .preferred-date-item{ flex-direction:column; align-items:center; gap:0.3rem; min-width:0; }
+    .preferred-date-tag{ width:auto; text-align:center; }
+    .preferred-date-item input{
+      display:block; box-sizing:border-box;
+      width:calc(100% - 5mm); max-width:none; min-width:0;
+      margin:0 auto; min-height:2.9rem;
+      text-align:center;
+      -webkit-appearance:none; appearance:none;
+    }
+    .preferred-date-item input::-webkit-date-and-time-value{ text-align:center; min-width:0; }
+  }
 </style>
 </head>
 <body>
@@ -743,7 +1024,7 @@
 
 <header>
   <div class="container">
-    <a href="#" class="logo">My.ハウスキーピング</a>
+    <a href="#" class="logo"><img class="logo-mark" src="logo-house.png" alt="">My.ハウスキーピング</a>
     <nav>
       <button class="nav-toggle" id="navToggle" aria-label="メニュー">
         <span></span><span></span><span></span>
@@ -760,34 +1041,39 @@
 </header>
 
 <section class="hero">
-  <div class="container hero-inner">
-    <img src="logo-house.png" alt="My.ハウスキーピング ロゴ" class="hero-logo fade-in">
-    <div class="hero-content">
+  <div class="container hero-copy">
+    <div class="hero-text">
       <span class="eyebrow fade-in">My.ハウスキーピング</span>
-      <h1 class="fade-in">頑張るあなたに、<br class="br-mobile"><span class="accent">暮らしのプロ</span>が寄り添います。</h1>
-      <p class="fade-in">休日にまとめて掃除する必要も、帰宅してから家事に追われる必要もありません。<br>掃除・片付けに使っていた時間を、家族との時間や自分のための時間へ。<br>定期的にプロが家を整えるから、いつでも気持ちよく過ごせる家を維持できます。</p>
-      <div class="cta fade-in">
-        <a href="#contact" class="btn">定期利用について相談する</a>
-      </div>
+      <h1 class="fade-in">頑張るあなたに、<br class="br-mobile"><span class="ph"><span class="accent">暮らしのプロ</span>が<wbr>寄り添います。</span></h1>
+      <p class="fade-in"><span class="ph">休日に<wbr>まとめて<wbr>掃除する<wbr>必要も、</span><br><span class="ph">帰宅してから<wbr>家事に<wbr>追われる</span><br class="sp-br"><span class="ph">必要も<wbr>ありません。</span><br><span class="ph">掃除・<wbr>片付けに<wbr>使っていた<wbr>時間を、</span><br><span class="ph">家族との<wbr>時間や<wbr>自分のための<wbr>時間へ。</span><br><span class="ph">定期的に<wbr>プロが<wbr>家を整えるから、</span><br><span class="ph">いつでも<wbr>気持ちよく<wbr>過ごせる</span><br class="sp-br"><span class="ph">家を<wbr>維持できます。</span></p>
+    </div>
+    <div class="hero-actions">
+      <ul class="hero-badges fade-in">
+        <li><span class="b-label">実務経験延べ</span><strong class="b-main"><em>200</em>件</strong><span class="b-sub">以上</span></li>
+        <li><span class="b-label">業界経験</span><strong class="b-main"><em>6</em>年</strong><span class="b-sub">以上</span></li>
+        <li><span class="b-label">対応エリア</span><span class="b-sub">横浜市</span><strong class="b-main">青葉区</strong></li>
+      </ul>
+      <a href="#contact" class="cta-circle fade-in">定期利用について<br>相談する</a>
     </div>
   </div>
+  <div class="hero-visual" role="img" aria-label="明るく片付いたリビング"></div>
 </section>
 
 <section id="problem">
   <div class="container">
     <div class="section-head fade-in">
       <span class="tag">PROBLEM</span>
-      <h2>こんなお悩みございませんか？</h2>
+      <h2><span class="ph">こんなお悩み<br class="sp-br">ございませんか？</span></h2>
     </div>
     <div class="card fade-in">
       <ul class="pain-list">
-        <li>「お掃除・お片付けが苦手」</li>
-        <li>「散らかった家の中での暮らしがストレス！」</li>
-        <li>「たまには誰かの手作り料理が食べたい」</li>
-        <li>「遠方の両親の様子を見てほしい」</li>
-        <li>「旅行中のペットの世話を信頼出来る人に頼みたい」などなど…</li>
+        <li><span class="ph"><span class="nw">「お掃除・</span><wbr>お片付けが<wbr>苦手」</span></li>
+        <li><span class="ph"><span class="nw">「散らかった</span><wbr>家の中での<wbr>暮らしが<wbr>ストレス！」</span></li>
+        <li><span class="ph"><span class="nw">「たまには</span><wbr>誰かの<wbr>手作り料理<br class="sp-br">が食べたい」</span></li>
+        <li><span class="ph"><span class="nw">「遠方の</span><wbr>両親の<br class="sp-br">様子を<wbr>見てほしい」</span></li>
+        <li><span class="ph"><span class="nw">「旅行中の</span><wbr>ペットの世話を<wbr>信頼出来る人に<wbr>頼みたい」<wbr>などなど…</span></li>
       </ul>
-      <p class="pain-note">暮らしの中の様々なお悩み解決をお手伝いいたします！<br>お気軽にご依頼ください。</p>
+      <p class="pain-note"><span class="ph">暮らしの中の様々なお悩み<br class="sp-br">解決をお手伝いいたします！</span><br><span class="ph">お気軽に<wbr>ご依頼ください。</span></p>
     </div>
   </div>
 </section>
@@ -801,37 +1087,37 @@
     </div>
     <div class="service-grid">
       <div class="service-item fade-in" tabindex="0" role="button" aria-expanded="false">
-        <div class="icon">🧹</div>
+        <div class="icon" aria-hidden="true"><svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path d="M18 7h14l4 3v5H18z"/><rect x="19" y="14" width="8" height="8"/><rect x="13" y="21" width="20" height="23" rx="5"/><rect class="cut" x="18" y="28" width="10" height="8" rx="2"/><circle cx="41" cy="9" r="2"/><circle cx="41" cy="16" r="2"/><circle cx="44" cy="12.5" r="2"/></svg></div>
         <div class="service-name-row"><p>おうちのお掃除</p><span class="service-toggle">▼</span></div>
-        <div class="service-detail">リビング・キッチン・水回り・寝室など。優先度に応じてピカピカにお掃除致します！<br>※おうちの広さ・お掃除のご要望箇所によって作業時間が変わります。まずはお客様のご要望をお聞かせ下さい。</div>
+        <div class="service-detail"><span class="ph">リビング・<wbr>キッチン・<wbr>水回り・<wbr>寝室など。<wbr>優先度に応じて<wbr>ピカピカに<wbr>お掃除致します！</span><span class="note"><span class="ph">※おうちの広さ・<wbr>お掃除の<wbr>ご要望箇所によって<wbr>作業時間が<wbr>変わります。<wbr>まずは<wbr>お客様の<wbr>ご要望を<wbr>お聞かせ下さい。</span></span></div>
       </div>
       <div class="service-item fade-in" tabindex="0" role="button" aria-expanded="false">
-        <div class="icon">🧺</div>
+        <div class="icon" aria-hidden="true"><svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path d="M17 6L5 12l4 8 5-2v24h20V18l5 2 4-8-12-6c0 4-3 6-7 6s-7-2-7-6z"/></svg></div>
         <div class="service-name-row"><p>お洗濯</p><span class="service-toggle">▼</span></div>
-        <div class="service-detail">おうちのお掃除と組み合わせて洗っておくだけ、取り込んでおくだけのポイント的な使い方も、洗い～干し・畳みまでワンストップでのご要望も承ります。</div>
+        <div class="service-detail"><span class="ph">おうちのお掃除と<wbr>組み合わせて<wbr>洗っておくだけ、<wbr>取り込んでおくだけの<wbr>ポイント的な<wbr>使い方も、<wbr><span class="nw">洗い～干し・</span><wbr>畳みまで<wbr>ワンストップでの<wbr>ご要望も<wbr>承ります。</span></div>
       </div>
       <div class="service-item fade-in" tabindex="0" role="button" aria-expanded="false">
-        <div class="icon">📦</div>
-        <div class="service-name-row"><p>お片付け・整理整頓</p><span class="service-toggle">▼</span></div>
-        <div class="service-detail">片付かないお部屋のお片付けから押し入れ収納、キッチン回りの収納、断捨離など。おうちを根本からリフレッシュして、モヤモヤ解決をお手伝いします！</div>
+        <div class="icon" aria-hidden="true"><svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="8" width="36" height="9" rx="1.5"/><path d="M9 19h30v21a2 2 0 01-2 2H11a2 2 0 01-2-2z"/><rect class="cut" x="18" y="25" width="12" height="4" rx="2"/></svg></div>
+        <div class="service-name-row"><p><span class="ph">お片付け・<wbr>整理整頓</span></p><span class="service-toggle">▼</span></div>
+        <div class="service-detail"><span class="ph">片付かない<wbr>お部屋の<wbr>お片付けから<wbr>押し入れ収納、<wbr>キッチン回りの<wbr>収納、<wbr>断捨離など。<wbr>おうちを<wbr>根本から<wbr>リフレッシュして、<wbr>モヤモヤ解決を<wbr>お手伝いします！</span></div>
       </div>
       <div class="service-item fade-in" tabindex="0" role="button" aria-expanded="false">
-        <div class="icon">🍳</div>
+        <div class="icon" aria-hidden="true"><svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><circle cx="15" cy="19" r="8"/><circle cx="24" cy="14" r="9"/><circle cx="33" cy="19" r="8"/><rect x="14" y="20" width="20" height="14"/><rect x="14" y="36" width="20" height="7" rx="1.5"/></svg></div>
         <div class="service-name-row"><p>お料理代行</p><span class="service-toggle">▼</span></div>
-        <div class="service-detail">一食分を作りたてで配膳も、何食分かの作り置きも対応可能です。</div>
+        <div class="service-detail"><span class="ph">一食分を<wbr>作りたてで<wbr>配膳も、<wbr>何食分かの<wbr>作り置きも<wbr>対応可能です。</span></div>
       </div>
       <div class="service-item fade-in" tabindex="0" role="button" aria-expanded="false">
-        <div class="icon">🛒</div>
+        <div class="icon" aria-hidden="true"><svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h8l1.5 5H44l-5.5 19H17L11 10H3z"/><circle cx="20" cy="38" r="3.5"/><circle cx="35" cy="38" r="3.5"/></svg></div>
         <div class="service-name-row"><p>お買い物代行</p><span class="service-toggle">▼</span></div>
-        <div class="service-detail">食料品や日用品のお買い物を代行いたします。</div>
+        <div class="service-detail"><span class="ph">食料品や<wbr>日用品の<wbr>お買い物を<wbr>代行いたします。</span></div>
       </div>
       <div class="service-item fade-in" tabindex="0" role="button" aria-expanded="false">
-        <div class="icon">🤝</div>
+        <div class="icon" aria-hidden="true"><svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path d="M24 42S5 30 5 17a10 10 0 0119-4 10 10 0 0119 4c0 13-19 25-19 25z"/></svg></div>
         <div class="service-name-row"><p>見守り</p><span class="service-toggle">▼</span></div>
-        <div class="service-detail">離れたところに住んでいる高齢のご家族や、小学生以上のお子様の見守りに対応致します。また旅行中のペットのお世話などもお任せください！</div>
+        <div class="service-detail"><span class="ph">離れたところに<wbr>住んでいる<wbr>高齢の<wbr>ご家族や、<wbr>小学生以上の<wbr>お子様の<wbr>見守りに<wbr>対応致します。<wbr>また<wbr>旅行中の<wbr>ペットの<wbr>お世話なども<wbr>お任せください！</span></div>
       </div>
     </div>
-    <p class="service-note">そのほか、ご要望に応じた一般的な家事にも対応いたします。<br>当日のご自宅の状態やご要望に応じて、時間内で必要な作業を組み合わせてまいります。</p>
+    <p class="service-note"><span class="ph">そのほか、ご要望に応じた一般的な<br class="sp-br">家事にも対応いたします。</span><br><span class="ph">当日の<wbr>ご自宅の<wbr>状態や<wbr>ご要望に応じて、<br class="sp-br">時間内で<wbr>必要な作業を<br class="sp-br">組み合わせて<wbr>まいります。</span></p>
   </div>
 </section>
 
@@ -845,33 +1131,49 @@
     <div class="card price-card fade-in">
       <h3 class="plan-heading">２時間半プラン</h3>
       <p class="plan-tier">週2回以上のご利用</p>
-      <div class="price-row"><span class="yen">12,500円</span><span class="plan">（回/税込）</span></div>
+      <div class="price-row"><span class="yen"><span class="num">12,500</span><span class="unit">円</span></span><span class="plan">（回/税込）</span></div>
+      <div class="voice">
+        <p class="voice-tag">お客様の声－A様の場合</p>
+        <p class="voice-label"><span class="v-chip">2.5h利用</span><span class="v-chip">週2回</span></p>
+        <p class="voice-text"><span class="ph">毎週月曜日と<wbr>木曜日、<wbr>お掃除と<wbr>お料理の<wbr>作り置きを<wbr>それぞれの日に<wbr>依頼しています。<wbr>生活に<wbr>ゆとりが<wbr>生まれて、<wbr>自分の時間を<wbr>持てるように<wbr>なりました。</span></p>
+      </div>
 
       <div class="price-divider"></div>
 
       <h3 class="plan-heading">３時間プラン</h3>
       <p class="plan-tier">週2回以上のご利用</p>
-      <div class="price-row"><span class="yen">15,000円</span><span class="plan">（回/税込）</span></div>
+      <div class="price-row"><span class="yen"><span class="num">15,000</span><span class="unit">円</span></span><span class="plan">（回/税込）</span></div>
+      <div class="voice">
+        <p class="voice-tag">お客様の声－B様の場合</p>
+        <p class="voice-label"><span class="v-chip">3h利用</span><span class="v-chip">週1回</span></p>
+        <p class="voice-text"><span class="ph">毎週3時間、<wbr>おうちを<wbr>隅々まで<wbr>お掃除して<wbr>頂いています。<wbr>お風呂の<wbr>排水口、<wbr>巾木や<wbr>階段の端まで<wbr>細やかに<wbr>手が行き届いていて、<wbr>クオリティの高さや<wbr>お掃除のプロならではの<wbr>丁寧さを<wbr>感じられます。</span></p>
+      </div>
 
       <div class="price-divider"></div>
 
       <h3 class="plan-heading">お試し1回プラン</h3>
-      <div class="price-row"><span class="plan">2時間半</span><span class="yen">11,000円</span><span class="plan">（回/税込）</span></div>
-      <p class="price-notes">※お掃除のご要望箇所3箇所まで</p>
+      <div class="price-row"><span class="plan">2時間半</span><span class="yen"><span class="num">11,000</span><span class="unit">円</span></span><span class="plan">（回/税込）</span></div>
+      <p class="price-notes"><span class="ph">※お掃除の<wbr>ご要望箇所<wbr>3箇所まで</span></p>
+      <div class="voice">
+        <p class="voice-tag">お客様の声－C様の場合</p>
+        <p class="voice-label"><span class="v-chip">2.5h利用</span><span class="v-chip">お試し1回</span><span class="v-topic"><span class="ph">キッチン・<wbr>浴室・<wbr>トイレの掃除</span></span></p>
+        <p class="voice-text"><span class="ph">まずは一回と<wbr>思って<wbr>頼みました。<wbr>作業箇所の<wbr>仕上がり確認を<wbr>きっちり<wbr>やって下さり、<wbr>安心して<wbr>継続的に<wbr>お仕事を<wbr>頼めそうだと<wbr>思いました。</span></p>
+      </div>
 
       <div class="campaign">
-        <h4>【限定！お試し3回キャンペーン】</h4>
+        <h4><span class="ph">【限定！<wbr>お試し3回<wbr>キャンペーン】</span></h4>
         <table>
-          <tr><td>1回目</td><td>7,500円（2.5h）／ 9,000円（3h）</td></tr>
-          <tr><td>2回目</td><td>9,800円（2.5h）／ 11,700円（3h）</td></tr>
-          <tr><td>3回目</td><td>11,000円（2.5h）／ 13,200円（3h）</td></tr>
+          <tr><td>1回目</td><td><span class="pr">7,500円（2.5h）</span><span class="pr-sep"> ／ </span><span class="pr">9,000円（3h）</span></td></tr>
+          <tr><td>2回目</td><td><span class="pr">9,800円（2.5h）</span><span class="pr-sep"> ／ </span><span class="pr">11,700円（3h）</span></td></tr>
+          <tr><td>3回目</td><td><span class="pr">11,000円（2.5h）</span><span class="pr-sep"> ／ </span><span class="pr">13,200円（3h）</span></td></tr>
         </table>
-        <p class="price-notes">※本契約いただいた場合、500円引き（12,000円／14,500円）にてサービスご利用いただけます。</p>
+        <p class="price-notes"><span class="ph">※本契約<wbr>いただいた場合、<wbr>500円引き<wbr><span class="nw">（12,000円／14,500円）</span><wbr>にて<wbr>サービスを<wbr>ご利用<wbr>いただけます。</span></p>
       </div>
 
       <div class="price-notes">
-        <p>※上記料金＋別途交通費（実費）を頂戴いたします。</p>
-        <p>※土日祝日、17:00以降の夜間対応については別途割増料金（30分につき500円）が発生致します。</p>
+        <p><span class="ph">※上記料金＋<wbr>別途交通費<wbr><span class="nw">（実費）を</span><wbr>頂戴いたします。</span></p>
+        <p><span class="ph">※土日祝日、<wbr>17:00以降の<wbr>夜間対応については<wbr>別途割増料金<wbr><span class="nw">（30分につき</span><wbr><span class="nw">500円）が</span><wbr>発生致します。</span></p>
+        <p><span class="ph">※対応可能内容は<wbr>お部屋の広さや<wbr>ご要望内容の<wbr>組合わせにより<wbr>異なります。<wbr>まずは<wbr>お問い合わせ<wbr>ください。</span></p>
       </div>
     </div>
     <div class="section-cta fade-in">
@@ -887,8 +1189,8 @@
       <h2>対応エリア</h2>
     </div>
     <div class="card area-box fade-in">
-      <p class="big">横浜市青葉区エリアを中心に活動中！</p>
-      <p>東京都内などエリア外も広く対応可能ですので、まずはお気軽にご相談ください。</p>
+      <p class="big"><span class="ph">横浜市青葉区エリアを<wbr>中心に<wbr>活動中！</span></p>
+      <p><span class="ph">東京都内などエリア外も<wbr>広く<wbr>対応可能ですので、<wbr>まずは<wbr>お気軽に<wbr>ご相談ください。</span></p>
     </div>
   </div>
 </section>
@@ -901,10 +1203,10 @@
     </div>
     <div class="card fade-in">
       <ol class="flow-list">
-        <li><strong>お問い合わせ</strong>フォームよりご希望内容や日程についてご連絡ください。</li>
-        <li><strong>日程調整・ヒアリング</strong><span class="flow-note-tight">折り返しのご連絡にてサービスのご要望と日程についてお伺いいたします。</span></li>
-        <li><strong>ご訪問・サービス実施</strong>心を込めて丁寧に作業いたします。</li>
-        <li><strong>ご確認・お支払い</strong>作業完了後ご確認頂き、お支払いとなります。<br>（現金払い・銀行振込・クレジットカード払いがご利用いただけます）</li>
+        <li><strong>お問い合わせ</strong><span class="flow-desc"><span class="ph">フォームより<wbr>ご希望内容や<wbr>日程について<wbr>ご連絡ください。</span></span></li>
+        <li><strong><span class="ph">日程調整・<wbr>ヒアリング</span></strong><span class="flow-desc"><span class="ph">折り返しの<wbr>ご連絡にて<wbr>サービスの<wbr>ご要望と<wbr>日程について<wbr>お伺いいたします。</span></span></li>
+        <li><strong><span class="ph">ご訪問・<wbr>サービス実施</span></strong><span class="flow-desc"><span class="ph">心を込めて<wbr>丁寧に<wbr>作業いたします。</span></span></li>
+        <li><strong>ご確認・お支払い</strong><span class="flow-desc"><span class="ph">作業完了後<wbr>ご確認頂き、<wbr>お支払いとなります。</span><br><span class="ph"><span class="nw">（現金払い・</span><wbr>銀行振込・<wbr>クレジットカード払いが<wbr>ご利用<wbr><span class="nw">いただけます）</span></span></span></li>
       </ol>
     </div>
   </div>
@@ -916,15 +1218,19 @@
       <span class="tag">PROFILE</span>
       <h2>略歴</h2>
     </div>
-    <div class="card fade-in">
-      <div class="profile-card">
-        <div class="profile-avatar">My</div>
-        <div>
-          <span class="profile-title">ライフサポートパートナー</span>
+    <div class="card profile-flex fade-in">
+      <img class="profile-photo" src="profile.jpg" alt="床をていねいに拭き掃除するスタッフ" loading="lazy">
+      <div class="profile-body">
+        <div class="profile-head">
+          <div class="profile-head-row">
+            <img class="logo-mark profile-mark" src="logo-house.png" alt="">
+            <span class="profile-title">ライフサポートパートナー</span>
+          </div>
           <p class="profile-name">My.ハウスキーピング</p>
+          <p class="profile-person">maiko</p>
         </div>
         <p class="profile-bio">
-          日本トップシェアのハウスキーピング会社に5年以上在籍し、社内表彰を受賞。延べ200件以上のお宅での実務経験、及び海外の高級邸宅での住み込み勤務を経て独立致しました。正確丁寧な作業はもちろん、お客様の気持ちに寄り添うヒアリングを大切にしています。
+          <span class="ph">日本トップシェアの<wbr>ハウスキーピング会社に<wbr>5年以上在籍し、<wbr>社内表彰を受賞。<wbr>延べ200件以上の<wbr>お宅での<wbr>実務経験、<wbr>及び<wbr>海外の<wbr>高級邸宅での<wbr>住み込み勤務を<wbr>経て<wbr>独立致しました。<wbr>正確丁寧な作業は<wbr>もちろん、<wbr>お客様の<wbr>気持ちに<wbr>寄り添う<wbr>ヒアリングを<wbr>大切にしています。</span>
         </p>
       </div>
     </div>
@@ -977,7 +1283,7 @@
           </div>
         </div>
         <div class="form-group">
-          <label>ご希望サービス内容</label>
+          <label><span class="ph">ご希望<wbr>サービス内容</span></label>
           <div class="checkbox-group" id="serviceGroup">
             <label class="checkbox-item"><input type="checkbox" name="service" value="おうちのお掃除"><span>おうちのお掃除</span></label>
             <label class="checkbox-item"><input type="checkbox" name="service" value="お洗濯"><span>お洗濯</span></label>
@@ -990,7 +1296,7 @@
           <input type="text" id="otherDetail" name="otherDetail" placeholder="その他のご希望内容をご記入ください" class="other-detail" style="display:none;">
         </div>
         <div class="form-group">
-          <label for="preferredDate1">初回の訪問・打ち合わせ希望日時</label>
+          <label for="preferredDate1"><span class="ph">初回の訪問・<wbr>打ち合わせ<wbr>希望日時</span></label>
           <div class="preferred-date-group">
             <div class="preferred-date-item">
               <span class="preferred-date-tag">第1希望</span>
@@ -1016,7 +1322,7 @@
         <p id="formStatus"></p>
       </form>
       <div id="formSuccess" class="form-success">
-        <p>お問い合わせ内容を受け付けました。内容を確認後3営業日以内にご連絡いたします。</p>
+        <p><span class="ph">お問い合わせ内容を<wbr>受け付けました。<wbr>内容を確認後<wbr>3営業日以内に<wbr>ご連絡いたします。</span></p>
       </div>
     </div>
   </div>
@@ -1025,7 +1331,7 @@
 <footer>
   <div class="container">
     <div class="logo">My.ハウスキーピング</div>
-    <p>ライフサポートパートナー ｜ 横浜市青葉区を中心に活動中</p>
+    <p><span class="ft-a">ライフサポートパートナー</span><span class="ft-sep"> ｜ </span><span class="ft-b">横浜市青葉区を中心に活動中</span></p>
     <p class="copyright">&copy; 2026 My.ハウスキーピング All Rights Reserved.</p>
   </div>
 </footer>
@@ -1035,7 +1341,7 @@
     <path id="ctaCurve" d="M 10,50 a 40,40 0 1,1 80,0 a 40,40 0 1,1 -80,0" fill="none"></path>
     <text font-size="10" text-anchor="middle"><textPath href="#ctaCurve" startOffset="25%">お問い合わせはこちら</textPath></text>
   </svg>
-  <span class="floating-cta-icon">✉️</span>
+  <span class="floating-cta-icon"><svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M3 11a2 2 0 012-2h38a2 2 0 012 2v1.5L24 26 3 12.5z"/><path d="M3 18.2l21 13.5 21-13.5V37a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg></span>
 </a>
 
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
