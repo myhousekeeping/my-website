@@ -764,8 +764,20 @@
   /* コピー部分の背景：カーテンの写真（下端は白へなじませる） */
   .hero-top{
     background:
-      linear-gradient(180deg,rgba(255,255,255,0.3) 0%,rgba(255,255,255,0.3) 75%,#fff 100%),
+      linear-gradient(180deg,rgba(255,255,255,0.5) 0%,rgba(255,255,255,0.5) 75%,#fff 100%),
       url('bg-curtain.png') center/cover no-repeat;
+  }
+  /* スマホ：木漏れ日の影とカーテンの境目が見える位置に寄せる */
+  @media (max-width:768px){
+    /* 写真は拡大せず8cm上へずらす。ヘッダー（約64px）のすぐ下から4cmの白→透明グラデーション。
+       写真の下端は白へなじませる（その下は白） */
+    .hero-top{
+      background:
+        linear-gradient(180deg,#fff 0,#fff 64px,rgba(255,255,255,0) calc(64px + 4cm)),
+        linear-gradient(0deg,#fff 0,#fff 8cm,rgba(255,255,255,0) 12cm),
+        linear-gradient(rgba(255,255,255,0.5),rgba(255,255,255,0.5)),
+        #fff url('bg-curtain.png') 57% -8cm/cover no-repeat;
+    }
   }
   .hero .eyebrow{ font-size:1.25rem; margin-bottom:0.5rem; }
   .hero h1{ font-size:clamp(1.35rem,3.6vw,2.6rem); margin-bottom:1.1rem; }
